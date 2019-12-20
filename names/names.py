@@ -22,16 +22,22 @@ for name in names_2:
     if bst.contains(name):
         duplicates.append(name)
 
-names1 = set(names_1)
-names2 = set(names_2)
-duplicates = names1 & names2
-
 end_time = time.time()
 print(f"{len(duplicates)} duplicates:\n\n{', '.join(duplicates)}\n\n")
 print(f"runtime: {end_time - start_time} seconds")
+
 
 
 # ---------- Stretch Goal -----------
 # Python has built-in tools that allow for a very efficient approach to this problem
 # What's the best time you can accomplish with no restrictions on techniques or data
 # structures?
+
+start_time = time.time()
+
+names1 = set(names_1)
+duplicates = [names for names in names_2 if names in names1]
+
+end_time = time.time()
+print(f"{len(duplicates)} duplicates:\n\n{', '.join(duplicates)}\n\n")
+print(f"runtime: {end_time - start_time} seconds")
