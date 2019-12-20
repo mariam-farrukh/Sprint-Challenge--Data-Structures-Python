@@ -13,7 +13,14 @@ f.close()
 
 
 duplicates = []
-# cache = {} # Cache isn't working properly. Duplicate names not being printed
+# This original code's runtime complexity is O(n^2). It isn't efficient and takes my computer 5.48 seconds to run it.
+# for name_1 in names_1:
+#     for name_2 in names_2:
+#         if name_1 == name_2:
+#             duplicates.append(name_1)
+
+# cache = {} # Cache isn't working properly. Duplicate names not being printed. 
+# Attempted bst search instead of using cache
 bst = BinarySearchTree(names_1[0])
 for name in names_1[1:]:
     bst.insert(name)
@@ -26,12 +33,15 @@ end_time = time.time()
 print(f"{len(duplicates)} duplicates:\n\n{', '.join(duplicates)}\n\n")
 print(f"runtime: {end_time - start_time} seconds")
 
+# This run time complexity would be O(n logn)
 
 
 # ---------- Stretch Goal -----------
 # Python has built-in tools that allow for a very efficient approach to this problem
 # What's the best time you can accomplish with no restrictions on techniques or data
 # structures?
+
+# This solution has a runtime complexity of O(n). This gives back the results in 0.001 seconds with all other solutions commented out.
 
 start_time = time.time()
 
